@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+
+:root {
+  --text-color: #EDEAFF;
+  --bg-url: url(./assets/bg-mobile-dark.jpg);
+  --stroke-color: #F8E2FF;
+  --surface-color1: rgba(0, 0, 0, .2);
+  --surface-color2: rgba(255, 0, 229, .2);
+  --surface-color-hover1: rgba(255, 255, 255, .15);
+  --surface-color-hover2: rgba(255, 255, 255, .15);
+  --stroke-color-hover: #fff;
+  --highlight-color: rgba(255, 255, 255, .2);
+  --switch-bg-url: url(./assets/moon-icon.svg);
+}
+
+.light  {
+  --text-color: #2A073A;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: #98CEFF;
+  --surface-color1: rgba(86, 255, 233, .3);
+  --surface-color2: rgba(52, 36, 244, .3);
+  --surface-color-hover1: rgba(255, 44, 44, .1);
+  --surface-color-hover2: rgba(255, 237, 72, .1);
+  --stroke-color-hover: #F6944D;
+  --highlight-color: rgba(0, 0, 0, .1);
+  --switch-bg-url: url(./assets/sun-icon.svg);
+}
+
+body {
+  background: var(--bg-url) top center/cover;
+  height: 100vh;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+li a {
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, var(--surface-color1), var(--surface-color2));
+  padding: 16px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--stroke-color);
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, .05);
+  transition: background .2s;
+}
+
+li a:hover {
+  background: linear-gradient(to right, var(--surface-color-hover1), var(--surface-color-hover2));
+  border: 1.5px solid var(--stroke-color-hover);
+}
+
+#container {
+  margin: 56px auto 0px;
+  width: 100%;
+  max-width: 588px;
+  padding: 0 24px;
+}
+
+#avatar {
+  text-align: center;
+  padding: 24px;
+}
+
+#avatar img {
+  width: 112px;
+}
+
+#avatar p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: #fff var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  animation: slide-out .2s;
+}
+
+.light #switch button {
+  animation: slide-in .2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: linear-gradient(to right, var(--surface-color1), var(--surface-color2));
+  border: 1px solid var(--stroke-color);
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, .05);
+  border-radius: 9999px;
+}
+
+#icons {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding: 16px;
+  transition: background .2s;
+  border-radius: 50%;
+}
+
+#icons a:hover {
+  background: var(--highlight-color);
+}
+
+@media (min-width: 700px) {
+  :root {
+      --bg-url: url(../assets/bg-desktop-dark.jpg);
+  }
+  .light {
+    --bg-url: url(../assets/bg-desktop.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
